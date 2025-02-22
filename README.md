@@ -65,13 +65,27 @@
     git clone https://github.com/nomukoh/traffic-acoustic-analysis.git
     cd traffic-acoustic-analysis
     ```
+2. **依存パッケージのインストール**
+  実行環境
+  - CUDA 11.8
+  - cuDNN 9.5.1
+  - Python 3.10.9
+  - PyTorch 2.5.1
+  
+  環境構築手順
+  ```
+  poetry init  
+  poetry install  
+  poetry shell  
+  poetry run pip install torch torchaudio torchvision --extra-index-url https://download.pytorch.org/whl/cu118  
+  ```
 
-2. **プログラムと学習データのダウンロード**  
+3. **プログラムと学習データのダウンロード**  
    - 深層距離学習の損失関数（CircleLoss）は、[Githubページ](https://github.com/TinyZeaMays/CircleLoss)からダウンロードし、`encoder/loss/`ディレクトリに`circle_loss.py`として配置してください。  
    - 深層距離学習の損失関数（LogRatioLoss）は、[Githubページ](https://github.com/tjddus9597/Beyond-Binary-Supervision-CVPR19)からダウンロードし、`main.py`、`utils.py`、`LogRatioLoss.py`を`encoder/loss/`ディレクトリに配置してください。  
    - 学習データは、[Zenodo](https://zenodo.org/records/10700792)からダウンロードし、`loc1`～`loc6`のフォルダを`workfolder/simulation/`に配置してください。
 
-3. **データの準備**  
+4. **データの準備**  
    - 以下のコマンドを実行して、走行音が最も大きい6秒間のデータをトリミングします。  
      ```bash
      poetry run python -m workfolder.simulation.cut
@@ -81,7 +95,7 @@
      poetry run python -m encoder.datasets.combain
      ```
 
-4. **プログラムの実行**  
+5. **プログラムの実行**  
    - **実験０（多様体取得）**  
      各実験前に、対象データ、可視化手法、ハイパーパラメータ等のパラメータ定義を必要に応じて変更してください。  
      - 1次元オートエンコーダの学習:  
@@ -115,7 +129,7 @@
      poetry run python -m encoder.speedPrediction
      ```
 
-5. **その他のプログラム**
+6. **その他のプログラム**
    - t-SNEによる可視化
       `outputs/`フォルダに保存された`latent_spaces`ファイルと`metadata.csv`ファイルを`TSNE/`直下に配置し、以下のプログラムを実行することで、t-SNEによる可視化が行えます。`TSNE/tsne.py`の中でハイパパラメータを変更することができます。
      ```bash
@@ -137,7 +151,7 @@
 本リポジトリ内の自作プログラムの著作権はすべて nomukoh に帰属します。ただし、外部からダウンロードしたファイルは、各公式ページに記載のライセンス条件に従ってご利用ください。
 
 プログラムの実行に必要なコードのダウンロード先とライセンスを示します。
-[circle_loss.py](https://github.com/TinyZeaMays/CircleLoss)（非公式実装・ライセンス未記載）
-[LogRatioLoss.py](https://github.com/tjddus9597/Beyond-Binary-Supervision-CVPR19)（MITライセンス）
-DCASE 2024 Challenge Task 10 Development Dataset [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10700792.svg)](https://doi.org/10.5281/zenodo.10700792)
+- [circle_loss.py](https://github.com/TinyZeaMays/CircleLoss)（非公式実装・ライセンス未記載）
+- [LogRatioLoss.py](https://github.com/tjddus9597/Beyond-Binary-Supervision-CVPR19)（MITライセンス）
+- DCASE 2024 Challenge Task 10 Development Dataset [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10700792.svg)](https://doi.org/10.5281/zenodo.10700792)
 （CC BY-NC-SA 4.0）
