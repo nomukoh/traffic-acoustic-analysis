@@ -1,0 +1,13 @@
+outputs/
+outputsV2/
+lightning_logs/
+.env
+mlruns/
+.neptune/
+logs/
+__pycache__/
+
+*.wav
+*.flac
+*.png
+*.npy
