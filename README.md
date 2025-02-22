@@ -65,20 +65,21 @@
     git clone https://github.com/nomukoh/traffic-acoustic-analysis.git
     cd traffic-acoustic-analysis
     ```
-2. **依存パッケージのインストール**
-  実行環境
-  - CUDA 11.8
-  - cuDNN 9.5.1
-  - Python 3.10.9
-  - PyTorch 2.5.1
-  
-  環境構築手順
-  ```
-  poetry init  
-  poetry install  
-  poetry shell  
-  poetry run pip install torch torchaudio torchvision --extra-index-url https://download.pytorch.org/whl/cu118  
-  ```
+
+2. **依存パッケージのインストール**  
+   **実行環境:**  
+   - CUDA 11.8  
+   - cuDNN 9.5.1  
+   - Python 3.10.9  
+   - PyTorch 2.5.1  
+
+   **環境構築手順:**  
+   ```bash
+   poetry init  
+   poetry install  
+   poetry shell  
+   poetry run pip install torch torchaudio torchvision --extra-index-url https://download.pytorch.org/whl/cu118
+   ```
 
 3. **プログラムと学習データのダウンロード**  
    - 深層距離学習の損失関数（CircleLoss）は、[Githubページ](https://github.com/TinyZeaMays/CircleLoss)からダウンロードし、`encoder/loss/`ディレクトリに`circle_loss.py`として配置してください。  
