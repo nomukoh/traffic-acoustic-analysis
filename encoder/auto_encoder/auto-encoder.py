@@ -23,7 +23,8 @@ import random
 from sklearn.manifold import TSNE
 
 # ハイパーパラメータの設定
-DATA_CSV_PATH = './encoder/datasets/loc1_cut/data.csv'
+DATA_CSV_PATH = './encoder/datasets/data_1-6.csv'
+# DATA_CSV_PATH = './encoder/datasets/loc1_cut/data.csv' # data1のみを対象とする場合（新たにcsvファイルを作成する必要あり）
 MEL = 'OFF' # ON or OFF 注: Decoder を手動で変更する必要あり
 SAMPLING_RATE = 16000
 N_FFT = 2048  # 1024 or 2048 がよく使われる（小さいほうが軽い）
