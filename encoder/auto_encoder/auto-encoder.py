@@ -111,7 +111,7 @@ logger.info("音声データをロードしています...")
 max_length = 0
 raw_data = []
 for i, row in data.iterrows():
-    file_path = os.path.join('./encoder/datasets/loc1_cut/', row['path'])
+    file_path = os.path.join('./encoder/datasets/', row['path'])
     y = load_audio(file_path, sr=SAMPLING_RATE)
     raw_data.append((y, row['speed'], row['vehicle_type'], row['direction']))
     if len(y) > max_length:
